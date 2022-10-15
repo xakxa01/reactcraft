@@ -20,8 +20,8 @@ export const useKeyboard = () => {
 	const [actions, setActions] = useState({
 		moveForward: false,
 		moveBackward: false,
-		moveRight: false,
 		moveLeft: false,
+		moveRight: false,
 		jump: false,
 		dirt: false,
 		grass: false,

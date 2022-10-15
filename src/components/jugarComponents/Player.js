@@ -1,15 +1,15 @@
 import { useSphere } from '@react-three/cannon';
-import { PointerLockControls } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber'
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Vector3 } from 'three';
 import { useKeyboard } from '../../hooks/useKeyboard';
+import FVP from './FVP';
 
 export default function Player() {
 
 	const { jump, moveBackward, moveForward, moveLeft, moveRight } = useKeyboard();
 
-	const { camera, gl } = useThree();
+	const { camera } = useThree();
 	const [ref, api] = useSphere(() => ({
 		mass: 4,
 		type: 'Dynamic',
@@ -55,14 +55,12 @@ export default function Player() {
 
 		api.velocity.set(direction.x, vel.current[1], direction.z)
 
-		if (jump) {
-			api.velocity.set(vel.current[0], 4, vel.current[0])
-		}
+		if (jump) api.velocity.set(vel.current[0], 4, vel.current[0])
 	})
 
 	return (
 		<>
-			<PointerLockControls args={[camera, gl.domElement]} />
+			<FVP />
 			<mesh ref={ref}></mesh>
 		</>
 	)

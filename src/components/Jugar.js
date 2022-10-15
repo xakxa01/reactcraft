@@ -6,6 +6,7 @@ import Ground from './jugarComponents/Ground';
 import Player from './jugarComponents/Player';
 import MenuInGame from './MenuInGame';
 import { toast, Toaster } from 'react-hot-toast';
+import FVP from './jugarComponents/FVP';
 
 export default function Jugar() {
 
@@ -17,11 +18,14 @@ export default function Jugar() {
 		<>
 			<Canvas>
 				<Sky sunPosition={[100, 100, 20]} />
+
 				<ambientLight intensity={0.5} />
+
 				<Physics>
 					<Player />
 					<Ground />
 				</Physics>
+
 			</Canvas>
 
 			<div className='absolute w-screen h-screen top-0 left-0 flex justify-center items-center'>
@@ -34,7 +38,6 @@ export default function Jugar() {
 				position="bottom-right"
 				reverseOrder={true}
 			/>
-
 		</>
 	)
 }

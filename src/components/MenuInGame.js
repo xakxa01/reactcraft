@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export default function MenuInGame() {
@@ -8,7 +8,6 @@ export default function MenuInGame() {
 	useEffect(() => {
 		const keyDownHandler = event => {
 			if (event.key === 'Escape') setshow(!show);
-			console.log(show);
 		}
 
 		document.addEventListener('keydown', keyDownHandler);
