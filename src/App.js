@@ -7,7 +7,7 @@ import Informacion from "./components/Informacion";
 import Jugar from "./components/Jugar";
 import Menu from "./components/Menu";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -19,4 +19,3 @@ function App() {
   );
 }
 
-export default App;

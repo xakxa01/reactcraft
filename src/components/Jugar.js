@@ -6,7 +6,7 @@ import Ground from './jugarComponents/Ground';
 import Player from './jugarComponents/Player';
 import MenuInGame from './MenuInGame';
 import { toast, Toaster } from 'react-hot-toast';
-import FVP from './jugarComponents/FVP';
+import Cubes from './Cubes';
 
 export default function Jugar() {
 
@@ -23,6 +23,7 @@ export default function Jugar() {
 
 				<Physics>
 					<Player />
+					<Cubes />
 					<Ground />
 				</Physics>
 
