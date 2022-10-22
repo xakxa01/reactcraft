@@ -7,6 +7,7 @@ import Player from './jugarComponents/Player';
 import MenuInGame from './MenuInGame';
 import { toast, Toaster } from 'react-hot-toast';
 import Cubes from './Cubes';
+import TextureSelector from './TextureSelector';
 
 export default function Jugar() {
 
@@ -32,6 +33,8 @@ export default function Jugar() {
 			<div className='absolute w-screen h-screen top-0 left-0 flex justify-center items-center'>
 				<p className='text-gray-300'>+</p>
 			</div>
+
+			<TextureSelector />
 
 			<MenuInGame />
 

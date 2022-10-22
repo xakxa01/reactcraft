@@ -7,6 +7,7 @@ const
 	logTexture = new TextureLoader().load('https://raw.githubusercontent.com/danba340/minecraft-freecodecamp/start/src/images/log.jpg'),
 	woodTexture = new TextureLoader().load('https://raw.githubusercontent.com/danba340/minecraft-freecodecamp/start/src/images/wood.png');
 
+
 const textureArray = [
 	dirtTexture,
 	glassTexture,
@@ -24,7 +25,7 @@ export {
 	glassTexture,
 	grassTexture,
 	logTexture,
-	woodTexture
+	woodTexture,
 };
 
 
