@@ -31,6 +31,7 @@ export const useKeyboard = () => {
 	})
 
 	const handleKeyDown = useCallback((e) => {
+		// console.log("e", e)
 		const action = actionByKey(e.code)
 		if (action) {
 			setActions((prev) => {
@@ -44,6 +45,7 @@ export const useKeyboard = () => {
 
 	const handleKeyUp = useCallback((e) => {
 
+		// console.log("e", e)
 		const action = actionByKey(e.code)
 		if (action) {
 			setActions((prev) => {
@@ -65,5 +67,6 @@ export const useKeyboard = () => {
 		}
 	}, [handleKeyDown, handleKeyUp])
 
+	// console.log("actions", actions)
 	return actions;
 }

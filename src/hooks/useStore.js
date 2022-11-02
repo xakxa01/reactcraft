@@ -3,6 +3,8 @@ import create from 'zustand'
 
 export const useStore = create((set) => {
 
+	let cube = 'dirt'
+
 	const
 		addCube = (x, y, z) => {
 			set((prev) => ({
@@ -11,7 +13,7 @@ export const useStore = create((set) => {
 					{
 						key: nanoid(),
 						pos: [x, y, z],
-						texture: prev.texture
+						texture: cube
 					}
 				]
 			}))
@@ -31,7 +33,9 @@ export const useStore = create((set) => {
 			set(() => texture)
 		},
 
-		activeTexture = () => { },
+		activeTexture = (texture) => {
+			cube = texture
+		},
 
 		saveWorld = () => { },
 
@@ -43,9 +47,8 @@ export const useStore = create((set) => {
 		texture: 'dirt',
 	}]
 
-
 	return {
-		texture: 'dirt',
+		texture: cube,
 		cubes,
 		addCube,
 		removeCube,

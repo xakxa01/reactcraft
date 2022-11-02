@@ -30,7 +30,7 @@ export default function MenuInGame() {
           resetear
         </button>
 
-        <button clasasName="text-center uppercase py-5 px-10 w-80 bg-gray-400 text-4xl my-1 hover:bg-green-600 font-semibold text-gray-800 border-4 border-gray-500 hover:text-white">
+        <button className="text-center uppercase py-5 px-10 w-80 bg-gray-400 text-4xl my-1 hover:bg-green-600 font-semibold text-gray-800 border-4 border-gray-500 hover:text-white">
           controles
         </button>
 
