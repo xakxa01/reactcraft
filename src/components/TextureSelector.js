@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useKeyboard } from "../hooks/useKeyboard"
 import { useStore } from "../hooks/useStore";
 
@@ -30,42 +30,32 @@ export default function TextureSelector() {
 
 	const { dirt, grass, glass, wood, log } = useKeyboard();
 	const { setTexture, activeTexture } = useStore();
+	const [activeSelect, setActiveSelect] = useState()
 
 	useEffect(() => {
-		let pressedTexture = [dirt, grass, glass, wood, log];
-		// const pressedTexture = Object.entries(textures).find(([k, v]) => {
-		// 	return v
-		// })
+		let textures = { dirt, grass, glass, wood, log };
+		const pressedTexture = Object.entries(textures).find(([k, v]) => v)
+
 		if (pressedTexture) {
-			console.log("pressedTexture", pressedTexture)
-			setTexture(pressedTexture)
+			activeTexture(pressedTexture[0])
+			setActiveSelect(pressedTexture[0])
 		}
 
-	}, [dirt, grass, glass, wood, log, setTexture]);
+	}, [dirt, grass, glass, wood, log, setTexture, activeTexture]);
 
 	return (
 		<div className='absolute w-screen h-screen top-0 left-0 flex justify-center items-end'>
 			{blocks.map((el, index) => (
-				<label htmlFor="actives">
-					<input
-						type="radio"
-						name="active"
-						id="actives"
-						value={el.active}
-						onClick={(e) => activeTexture(e.target.value)}
+				<div className={`bg-gray-300 p-2 border-gray-500 border-2 m-1 mb-2 rounded-lg relative transition-all 
+				${el.active === activeSelect && 'border-blue-500 scale-90'} `}>
+					<span className="absolute top-0 left-0 text-xs p-1">{index + 1}</span>
+
+					<img
+						className="w-16 h-16"
+						src={el.url}
+						alt='block'
 					/>
-
-					<div
-						className="bg-gray-300 p-2 border-gray-500 border-2 m-1 mb-2 rounded-lg relative target:border-blue-500">
-						<span className="absolute top-0 left-0 text-xs p-1">{index + 1}</span>
-
-						<img
-							className="w-16 h-16"
-							src={el.url}
-							alt='block'
-						/>
-					</div>
-				</label>
+				</div>
 			))}
 		</div>
 	)
